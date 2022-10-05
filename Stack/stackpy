@@ -1,0 +1,66 @@
+name = 'Arisara Jiamsakul'
+id = '64129968'
+print('Name : '+ name + ' ID: '+id)
+#ใช้ตรวจสอบว่า Stack ว่างหรือไม่
+def isEmpty (myStack):
+    if len(myStack) ==  0:
+        print('Stack is empty')
+        return 1
+    else:
+        return 0
+#เป็นการระบุค่าโดยการใส่ข้อมูล
+n = int(input('โปรดระบุขนาดของ Stack ที่มีค่ามากกว่า 0 : '))
+while n <= 0 :
+    n = int(input('โปรดระบุขนาดของ Sack ที่มีค่ามากกว่า 0 : '))
+#เก็บข้อมูล
+myStack = []*n
+
+print('โปรดระบุทางเลือกในการดำเนินการกับ Stack')
+print('1. PUSH : เพิ่มข้อมูลใน Stack')
+print('2. POP : ลบข้อมูลที่จัดเก็บในตำแหน่งบนสุดของ Stack')
+print('3. Top of Stack : แสดงข้อมูลที่จัดเก็บในตำแหน่งบนสุดของ Stack ทางจอภาพ')
+print('4. Display : แสดงข้อมูลทั้งหมดที่จัดเก็บใน Stack และผลรวมของข้อมูลที่จัดเก็บใน Stack ทางจอภาพ')
+choice = int(input('ทางเลือกในการดำเนินการ = '))
+
+#ใช้สำหรับตรวจสอบว่า Stack เต็มหรือไม่
+def isFull (myStack):
+    if len(myStack) == n:
+        print('Stack is full')
+        return 1
+    else:
+        return 0
+    
+#เป็นการเพิ่มข้อมูลใน Stack ถ้าเต็มจะไม่สามารถเพิ่มได้
+def push_stack (data,myStack):
+    test = isFull(myStack)
+    if test == 1:
+        print('Stack is full')
+    else:
+        return myStack.append(data)
+
+#เป็นการลบข้อมูลที่จัดเก็บอยู่บนสุดของ Stack
+def pop_stack():
+    test = isEmpty(myStack)
+    if test == 1:
+        print('Stack is empty')
+    else:
+        return myStack.pop()
+
+#เป็นฟังก์ชั่นแสดงตำแหน่งบนสุดของ Stack
+def top_of_stack():
+    test = isEmpty(myStack) #ตรวจสอบว่าว่างหรือไม่ ถ้าว่างจะแสดง top ไม่ได้
+    if test == 1:
+        print('Stack is empty')
+    else:
+        print('Top of Stack = ',myStack[-1])
+
+#เป็นฟังก์ชั่นที่แสดงข้อมูลที่เก็บไว้ใน Stack และผลรวมของข้อมูล
+def display_myStack():
+    print('ข้อมูลที่จัดเก็บทั้งหมด = ',myStack)
+    total = 0
+    for x in myStack:
+        total = total + i
+    print('ผลรวมของข้อมูลที่จัดเก็บใน Stack คือ ',total)
+    
+
+        
